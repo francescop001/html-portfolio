@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Benvenuti nel nostro sito web</title>
+  <style>
+    /* Reset CSS */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    /* Stili principali */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+    }
+    
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    h1, h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    
+    p {
+      margin-bottom: 10px;
+    }
+    
+    /* Header */
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+    }
+    
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+    
+    nav ul li {
+      margin-right: 20px;
+    }
+    
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+    }
+    
+    .mobile-menu {
+      display: none;
+      position: absolute;
+      top: 50%;
+      right: 20px;
+      transform: translateY(-50%);
+      cursor: pointer;
+    }
+    
+    /* Hero section */
+    .hero {
+      background-color: #fff;
+      padding: 80px 0;
+      text-align: center;
+    }
+    
+    .hero h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+    
+    .hero p {
+      font-size: 18px;
+      color: #888;
+      margin-bottom: 30px;
+    }
+    
+    .btn {
+      display: inline-block;
+      background-color: #333;
+      color: #fff;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+    
+    .btn:hover {
+      background-color: #555;
+    }
+    
+    /* About section */
+    .about {
+      background-color: #f9f9f9;
+      padding: 60px 0;
+      text-align: center;
+    }
+    
+    .about h2 {
+      font-size: 30px;
+      margin-bottom: 20px;
+    }
+    
+    /* Services section */
+    .services {
+      background-color: #fff;
+      padding: 60px 0;
+      text-align: center;
+    }
+    
+    .services h2 {
+      font-size: 30px;
+      margin-bottom: 20px;
+    }
+    
+    .services-list {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: nowrap;
+      overflow-x: scroll;
+      scroll-snap-type: x mandatory;
+      margin-bottom: 30px;
+    }
+    
+    .service {
+      flex: 0 0 auto;
+      width: 300px;
+      height: 300px;
+      margin-right: 20px;
+      padding: 20px;
+      text-align: center;
+      background-color: #f9f9f9;
+      border-radius: 4px;
+      scroll-snap-align: start;
+      transition: transform 0.3s ease;
+    }
+    
+    .service:hover {
+      transform: scale(1.1);
+    }
+    
+    .service img {
+      width: 100px;
+      height: 100px;
+      margin-bottom: 10px;
+      border-radius: 50%;
+    }
+    
+    /* Contact section */
+    .contact {
+      background-color: #f9f9f9;
+      padding: 60px 0;
+      text-align: center;
+    }
+    
+    .contact h2 {
+      font-size: 30px;
+      margin-bottom: 20px;
+    }
+    
+    .contact p {
+      color: #888;
+      margin-bottom: 30px;
+    }
+    
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border-radius: 4px;
+      border: none;
+    }
+    
+    .contact-form textarea {
+      height: 150px;
+    }
+    
+    .contact-form button {
+      background-color: #333;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    
+    .contact-form button:hover {
+      background-color: #555;
+    }
+    
+    /* Footer */
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding: 20px 0;
+      text-align: center;
+    }
+    
+    footer p {
+      margin-bottom: 0;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .mobile-menu {
+        display: block;
+      }
+    
+      nav ul {
+        display: none;
+      }
+    
+      .mobile-menu-icon {
+        font-size: 24px;
+        color: #fff;
+        padding: 10px;
+        cursor: pointer;
+      }
+    
+      .mobile-menu ul {
+        list-style: none;
+        margin-top: 10px;
+        display: none;
+      }
+    
+      .mobile-menu ul li {
+        margin-bottom: 10px;
+      }
+    }
+  </style>
+  <script>
+    // Mobile menu toggle
+    const mobileMenuIcon = document.querySelector('.mobile-menu-icon');
+    const mobileMenu = document.querySelector('.mobile-menu ul');
+    
+    mobileMenuIcon.addEventListener('click', function () {
+      mobileMenu.classList.toggle('active');
+    });
+  </script>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="mobile-menu">
+        <div class="mobile-menu-icon">&#9776;</div>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">Chi siamo</a></li>
+          <li><a href="#services">Servizi</a></li>
+          <li><a href="#contact">Contatti</a></li>
+        </ul>
+      </div>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">Chi siamo</a></li>
+        <li><a href="#services">Servizi</a></li>
+        <li><a href="#contact">Contatti</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="container">
+    <section id="home" class="hero">
+      <h1>Benvenuti nel nostro sito web</h1>
+      <p>Siamo un'azienda specializzata in servizi web.</p>
+      <a href="#services" class="btn">Scopri di più</a>
+    </section>
+
+    <section id="about" class="about">
+      <h2>Chi siamo</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam a est a nisi tristique accumsan id id diam. Pellentesque dapibus magna vitae lectus convallis, vel laoreet orci euismod.</p>
+    </section>
+
+    <section id="services" class="services">
+      <h2>Servizi</h2>
+      <div class="services-list">
+        <div class="service">
+          <img src="image1.jpg" alt="Servizio 1">
+          <p>Servizio 1</p>
+        </div>
+        <div class="service">
+          <img src="image2.jpg" alt="Servizio 2">
+          <p>Servizio 2</p>
+        </div>
+        <div class="service">
+          <img src="image3.jpg" alt="Servizio 3">
+          <p>Servizio 3</p>
+        </div>
+        <div class="service">
+          <img src="image4.jpg" alt="Servizio 4">
+          <p>Servizio 4</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <h2>Contatti</h2>
+      <p>Contattateci per ulteriori informazioni o per richiedere un preventivo.</p>
+      <form class="contact-form">
+        <input type="text" placeholder="Nome" required>
+        <input type="email" placeholder="Email" required>
+        <textarea placeholder="Messaggio" required></textarea>
+        <button type="submit">Invia</button>
+      </form>
+    </section>
+  </div>
+
+  <footer>
+    <p>&copy; 2023 Nome Azienda. Tutti i diritti riservati.</p>
+  </footer>
+</body>
+</html>
